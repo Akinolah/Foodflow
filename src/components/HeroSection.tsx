@@ -13,8 +13,8 @@ export function HeroSection() {
         <Image
           src="https://placehold.co/1920x1080.png"
           alt="Fresh groceries background"
-          layout="fill"
-          objectFit="cover"
+          fill
+          style={{ objectFit: "cover" }}
           priority
           data-ai-hint="groceries food background"
         />
