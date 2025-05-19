@@ -1,6 +1,6 @@
 
 import Link from 'next/link';
-import { Package2, UserCircle, ListOrderedIcon, LogInIcon, Facebook, Instagram, Twitter } from 'lucide-react';
+import { Package2, UserCircle, ListOrderedIcon, LogInIcon, Facebook, Instagram, X } from 'lucide-react'; // Changed Twitter to X
 import { ShoppingCartIcon } from '@/components/ShoppingCartIcon';
 import { Button } from '@/components/ui/button';
 
@@ -47,7 +47,7 @@ export function Header() {
                 </Button>
                 <Button variant="ghost" asChild className="hidden md:flex">
                   <Link href="/orders" aria-label="My Orders">
-                    <ListOrderedIcon className="h-5 w-5 md:mr-1" /> {/* Adjusted margin */}
+                    <ListOrderedIcon className="h-5 w-5 md:mr-1" />
                     <span className="hidden md:inline">Orders</span>
                   </Link>
                 </Button>
@@ -59,7 +59,7 @@ export function Header() {
                 </Button>
                 <Button variant="ghost" asChild className="hidden md:flex">
                   <Link href="/profile" aria-label="My Profile">
-                    <UserCircle className="h-5 w-5 md:mr-1" /> {/* Adjusted margin */}
+                    <UserCircle className="h-5 w-5 md:mr-1" />
                     <span className="hidden md:inline">Profile</span>
                   </Link>
                 </Button>
@@ -74,7 +74,7 @@ export function Header() {
                 </Button>
                 <Button variant="ghost" asChild className="hidden md:flex">
                   <Link href="/login">
-                    <LogInIcon className="h-5 w-5 md:mr-1" /> {/* Adjusted margin */}
+                    <LogInIcon className="h-5 w-5 md:mr-1" />
                     <span className="hidden md:inline">Login</span>
                   </Link>
                 </Button>
@@ -97,7 +97,7 @@ export function Header() {
             </Button>
             <Button variant="ghost" size="icon" asChild aria-label="FoodFlow on X (Twitter)">
               <Link href="https://x.com/foodflow" target="_blank" rel="noopener noreferrer">
-                <Twitter className="h-5 w-5" />
+                <X className="h-5 w-5" /> {/* Changed Twitter to X */}
               </Link>
             </Button>
           </div>
@@ -135,7 +135,7 @@ export function Header() {
             </Button>
             <Button variant="ghost" size="icon" asChild aria-label="FoodFlow on X (Twitter)">
               <Link href="https://x.com/foodflow" target="_blank" rel="noopener noreferrer">
-                <Twitter className="h-4 w-4" />
+                <X className="h-4 w-4" /> {/* Changed Twitter to X */}
               </Link>
             </Button>
           </div>
