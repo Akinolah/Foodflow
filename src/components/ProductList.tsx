@@ -34,17 +34,31 @@ export function ProductList({ products: initialProducts }: ProductListProps) {
   }, [searchTerm, selectedCategory, initialProducts]);
 
   if (!mounted) {
-    // To avoid hydration mismatch with Select component
-    return <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-      {[...Array(8)].map((_, i) => (
-        <div key={i} className="bg-muted p-4 rounded-lg animate-pulse aspect-[3/4]">
-          <div className="w-full aspect-video bg-muted-foreground/20 rounded mb-2"></div>
-          <div className="h-6 w-3/4 bg-muted-foreground/20 rounded mb-2"></div>
-          <div className="h-4 w-1/2 bg-muted-foreground/20 rounded mb-2"></div>
-          <div className="h-10 w-full bg-muted-foreground/20 rounded mt-4"></div>
+    // To avoid hydration mismatch, render a skeleton that closely matches the final structure.
+    return (
+      <div className="space-y-8">
+        <div className="flex flex-col sm:flex-row gap-4 items-center p-4 bg-card rounded-lg shadow">
+          {/* Skeleton for Search Input */}
+          <div className="relative w-full sm:flex-grow">
+            <div className="h-10 w-full bg-muted rounded-md animate-pulse"></div>
+          </div>
+          {/* Skeleton for Select */}
+          <div className="relative w-full sm:w-auto sm:min-w-[200px]">
+            <div className="h-10 w-full bg-muted rounded-md animate-pulse"></div>
+          </div>
         </div>
-      ))}
-    </div>;
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+          {[...Array(8)].map((_, i) => (
+            <div key={i} className="bg-muted p-4 rounded-lg animate-pulse aspect-[3/4]">
+              <div className="w-full aspect-video bg-muted-foreground/20 rounded mb-2"></div>
+              <div className="h-6 w-3/4 bg-muted-foreground/20 rounded mb-2"></div>
+              <div className="h-4 w-1/2 bg-muted-foreground/20 rounded mb-2"></div>
+              <div className="h-10 w-full bg-muted-foreground/20 rounded mt-4"></div>
+            </div>
+          ))}
+        </div>
+      </div>
+    );
   }
 
   return (
