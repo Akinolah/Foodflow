@@ -1,6 +1,6 @@
 
 import Link from 'next/link';
-import { Package2, UserCircle, ListOrderedIcon, LogInIcon, Facebook, Instagram, Twitter, Info, ShoppingBag, Cog, Mail } from 'lucide-react';
+import { Package2, UserCircle, ListOrderedIcon, LogInIcon, Facebook, Instagram, Twitter } from 'lucide-react';
 import { ShoppingCartIcon } from '@/components/ShoppingCartIcon';
 import { Button } from '@/components/ui/button';
 
@@ -21,6 +21,7 @@ export function Header() {
             <Link href="/">Home</Link>
           </Button>
           <Button variant="ghost" asChild>
+            {/* Assuming product listing is at root or a dedicated /products page */}
             <Link href="/">Products</Link> 
           </Button>
           <Button variant="ghost" asChild>
@@ -34,9 +35,9 @@ export function Header() {
           </Button>
         </nav>
 
-        <div className="flex items-center gap-1 md:gap-2">
+        <div className="flex items-center gap-2 md:gap-3">
           {/* User Auth and Cart */}
-          <div className="flex items-center gap-1">
+          <div className="flex items-center gap-1 p-0.5 rounded-md hover:bg-accent/10 transition-colors">
             {isAuthenticated && (
               <>
                 <Button variant="ghost" size="icon" asChild className="md:hidden">
@@ -46,7 +47,7 @@ export function Header() {
                 </Button>
                 <Button variant="ghost" asChild className="hidden md:flex">
                   <Link href="/orders" aria-label="My Orders">
-                    <ListOrderedIcon className="h-5 w-5 md:mr-2" />
+                    <ListOrderedIcon className="h-5 w-5 md:mr-1" /> {/* Adjusted margin */}
                     <span className="hidden md:inline">Orders</span>
                   </Link>
                 </Button>
@@ -58,7 +59,7 @@ export function Header() {
                 </Button>
                 <Button variant="ghost" asChild className="hidden md:flex">
                   <Link href="/profile" aria-label="My Profile">
-                    <UserCircle className="h-5 w-5 md:mr-2" />
+                    <UserCircle className="h-5 w-5 md:mr-1" /> {/* Adjusted margin */}
                     <span className="hidden md:inline">Profile</span>
                   </Link>
                 </Button>
@@ -73,7 +74,7 @@ export function Header() {
                 </Button>
                 <Button variant="ghost" asChild className="hidden md:flex">
                   <Link href="/login">
-                    <LogInIcon className="h-5 w-5 md:mr-2" />
+                    <LogInIcon className="h-5 w-5 md:mr-1" /> {/* Adjusted margin */}
                     <span className="hidden md:inline">Login</span>
                   </Link>
                 </Button>
@@ -83,7 +84,7 @@ export function Header() {
           </div>
 
           {/* Social Media Links */}
-          <div className="hidden md:flex items-center gap-1 ml-2">
+          <div className="hidden md:flex items-center gap-0.5 p-0.5 rounded-md hover:bg-accent/10 transition-colors">
             <Button variant="ghost" size="icon" asChild aria-label="FoodFlow on Facebook">
               <Link href="https://facebook.com/foodflow" target="_blank" rel="noopener noreferrer">
                 <Facebook className="h-5 w-5" />
@@ -102,13 +103,8 @@ export function Header() {
           </div>
         </div>
         
-        {/* Mobile Menu Trigger (Optional - if we want a hamburger menu later) */}
-        {/* <Button variant="ghost" size="icon" className="md:hidden">
-          <Menu className="h-6 w-6" />
-          <span className="sr-only">Toggle menu</span>
-        </Button> */}
       </div>
-      {/* Mobile navigation (can be expanded if a hamburger menu is implemented) */}
+      {/* Mobile navigation */}
       <div className="md:hidden flex flex-wrap justify-center items-center gap-1 px-2 pb-2 border-t">
           <Button variant="ghost" size="sm" asChild>
             <Link href="/">Home</Link>
