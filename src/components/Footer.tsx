@@ -1,10 +1,72 @@
 
+import Link from 'next/link';
+import { Package2, Mail, Phone, Facebook, Instagram, X as XIcon } from 'lucide-react';
+
 export function Footer() {
   return (
-    <footer className="border-t bg-background">
-      <div className="container py-8 text-center text-sm text-muted-foreground">
-        <p>&copy; {new Date().getFullYear()} FoodFlow. All rights reserved.</p>
-        <p className="mt-1">Delivering Freshness to Your Doorstep.</p>
+    <footer className="border-t bg-background text-muted-foreground">
+      <div className="container mx-auto px-4 py-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-8">
+          {/* Column 1: Brand and Tagline */}
+          <div className="space-y-4">
+            <Link href="/" className="flex items-center gap-2 text-foreground" aria-label="FoodFlow Home">
+              <Package2 className="h-7 w-7 text-primary" />
+              <span className="text-2xl font-bold tracking-tight">FoodFlow</span>
+            </Link>
+            <p className="text-sm">
+              Delivering fresh groceries and quality ingredients straight to your doorstep. Experience convenience and taste the difference.
+            </p>
+          </div>
+
+          {/* Column 2: Quick Links */}
+          <div className="space-y-3">
+            <h4 className="font-semibold text-foreground mb-2">Quick Links</h4>
+            <ul className="space-y-2 text-sm">
+              <li><Link href="/" className="hover:text-primary transition-colors">Home</Link></li>
+              <li><Link href="/" className="hover:text-primary transition-colors">Products</Link></li>
+              <li><Link href="/about" className="hover:text-primary transition-colors">About Us</Link></li>
+              <li><Link href="/service" className="hover:text-primary transition-colors">Our Services</Link></li>
+              <li><Link href="/contact" className="hover:text-primary transition-colors">Contact Us</Link></li>
+            </ul>
+          </div>
+
+          {/* Column 3: Contact Info */}
+          <div className="space-y-3">
+            <h4 className="font-semibold text-foreground mb-2">Get in Touch</h4>
+            <ul className="space-y-2 text-sm">
+              <li className="flex items-center gap-2">
+                <Mail className="h-4 w-4 text-primary" />
+                <a href="mailto:support@foodflow.example" className="hover:text-primary transition-colors">support@foodflow.example</a>
+              </li>
+              <li className="flex items-center gap-2">
+                <Phone className="h-4 w-4 text-primary" />
+                <a href="tel:+12345678900" className="hover:text-primary transition-colors">+1 (234) 567-8900</a>
+              </li>
+              {/* You can add address here if needed */}
+            </ul>
+          </div>
+
+          {/* Column 4: Social Media */}
+          <div className="space-y-3">
+            <h4 className="font-semibold text-foreground mb-2">Follow Us</h4>
+            <div className="flex space-x-3">
+              <Link href="https://facebook.com/foodflow" target="_blank" rel="noopener noreferrer" aria-label="FoodFlow on Facebook" className="text-muted-foreground hover:text-primary transition-colors">
+                <Facebook className="h-6 w-6" />
+              </Link>
+              <Link href="https://instagram.com/foodflow" target="_blank" rel="noopener noreferrer" aria-label="FoodFlow on Instagram" className="text-muted-foreground hover:text-primary transition-colors">
+                <Instagram className="h-6 w-6" />
+              </Link>
+              <Link href="https://x.com/foodflow" target="_blank" rel="noopener noreferrer" aria-label="FoodFlow on X" className="text-muted-foreground hover:text-primary transition-colors">
+                <XIcon className="h-6 w-6" />
+              </Link>
+            </div>
+          </div>
+        </div>
+
+        <div className="border-t pt-8 text-center text-sm">
+          <p>&copy; {new Date().getFullYear()} FoodFlow. All rights reserved.</p>
+          <p className="mt-1">A Project by Firebase Studio.</p>
+        </div>
       </div>
     </footer>
   );
