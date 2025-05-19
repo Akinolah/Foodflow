@@ -1,6 +1,6 @@
 
 import Link from 'next/link';
-import { Package2, UserCircle, ListOrderedIcon, LogInIcon, Facebook, Instagram, X } from 'lucide-react'; // Changed Twitter to X
+import { Package2, UserCircle, ListOrderedIcon, LogInIcon, Facebook, Instagram, X } from 'lucide-react';
 import { ShoppingCartIcon } from '@/components/ShoppingCartIcon';
 import { Button } from '@/components/ui/button';
 
@@ -21,8 +21,7 @@ export function Header() {
             <Link href="/">Home</Link>
           </Button>
           <Button variant="ghost" asChild>
-            {/* Assuming product listing is at root or a dedicated /products page */}
-            <Link href="/">Products</Link> 
+            <Link href="/products">Products</Link> 
           </Button>
           <Button variant="ghost" asChild>
             <Link href="/about">About</Link>
@@ -97,7 +96,7 @@ export function Header() {
             </Button>
             <Button variant="ghost" size="icon" asChild aria-label="FoodFlow on X (Twitter)">
               <Link href="https://x.com/foodflow" target="_blank" rel="noopener noreferrer">
-                <X className="h-5 w-5" /> {/* Changed Twitter to X */}
+                <X className="h-5 w-5" />
               </Link>
             </Button>
           </div>
@@ -110,7 +109,7 @@ export function Header() {
             <Link href="/">Home</Link>
           </Button>
           <Button variant="ghost" size="sm" asChild>
-            <Link href="/">Products</Link> 
+            <Link href="/products">Products</Link> 
           </Button>
           <Button variant="ghost" size="sm" asChild>
             <Link href="/about">About</Link>
@@ -135,7 +134,7 @@ export function Header() {
             </Button>
             <Button variant="ghost" size="icon" asChild aria-label="FoodFlow on X (Twitter)">
               <Link href="https://x.com/foodflow" target="_blank" rel="noopener noreferrer">
-                <X className="h-4 w-4" /> {/* Changed Twitter to X */}
+                <X className="h-4 w-4" />
               </Link>
             </Button>
           </div>
