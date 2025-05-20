@@ -2,7 +2,7 @@
 "use client";
 
 import Link from 'next/link';
-import { Package2, UserCircle, ListOrderedIcon, LogInIcon, Facebook, Instagram, X, Menu, ShoppingCart } from 'lucide-react';
+import { Package2, UserCircle, ListOrderedIcon, LogInIcon, Facebook, Instagram, Menu, ShoppingCart } from 'lucide-react';
 import { ShoppingCartIcon } from '@/components/ShoppingCartIcon';
 import { Button } from '@/components/ui/button';
 import {
@@ -15,6 +15,15 @@ import {
 } from "@/components/ui/sheet";
 import { Separator } from '@/components/ui/separator';
 import React from 'react';
+
+// Using an inline SVG for X (Twitter) icon as lucide-react's X is generic
+const XTwitterIcon = () => (
+  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+    <path d="M18 6 6 18"/>
+    <path d="m6 6 12 12"/>
+  </svg>
+);
+
 
 export function Header() {
   // Placeholder for authentication state
@@ -31,7 +40,7 @@ export function Header() {
   const socialLinks = [
     { href: "https://facebook.com/foodflow", label: "Facebook", icon: <Facebook className="h-5 w-5" /> },
     { href: "https://instagram.com/foodflow", label: "Instagram", icon: <Instagram className="h-5 w-5" /> },
-    { href: "https://x.com/foodflow", label: "X (Twitter)", icon: <X className="h-5 w-5" /> },
+    { href: "https://x.com/foodflow", label: "X (Twitter)", icon: <XTwitterIcon /> },
   ];
 
   return (
@@ -69,7 +78,7 @@ export function Header() {
                 </Button>
               </>
             ) : (
-              <Button variant="ghost" asChild>
+               <Button variant="ghost" asChild>
                 <Link href="/login">
                   <LogInIcon className="h-5 w-5 md:mr-1" />
                   <span className="hidden md:inline">Login</span>
@@ -83,7 +92,7 @@ export function Header() {
             {socialLinks.map(social => (
               <Button variant="ghost" size="icon" asChild key={social.href} aria-label={`FoodFlow on ${social.label}`}>
                 <Link href={social.href} target="_blank" rel="noopener noreferrer">
-                  {social.icon}
+                  {React.cloneElement(social.icon, { className: "h-5 w-5" })}
                 </Link>
               </Button>
             ))}
@@ -93,7 +102,6 @@ export function Header() {
           <div className="flex items-center gap-1 md:hidden">
             {isAuthenticated ? (
               <>
-                {/* Quick access profile/orders icons for mobile can be added here if desired, or kept in sheet */}
                 <Button variant="ghost" size="icon" asChild>
                   <Link href="/profile" aria-label="My Profile">
                     <UserCircle className="h-5 w-5" />
@@ -169,3 +177,5 @@ export function Header() {
     </header>
   );
 }
+
+    

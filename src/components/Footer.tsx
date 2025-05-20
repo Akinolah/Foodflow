@@ -2,9 +2,17 @@
 "use client";
 
 import Link from 'next/link';
-import { Package2, Mail, Phone, Facebook, Instagram, X as XIcon, Send } from 'lucide-react';
+import { Package2, Mail, Phone, Facebook, Instagram, Send } from 'lucide-react';
 import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
+
+// Using an inline SVG for X (Twitter) icon as lucide-react's X is generic
+const XTwitterIcon = () => (
+  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+    <path d="M18 6 6 18"/>
+    <path d="m6 6 12 12"/>
+  </svg>
+);
 
 export function Footer() {
   const handleNewsletterSubmit = (event: React.FormEvent<HTMLFormElement>) => {
@@ -36,7 +44,7 @@ export function Footer() {
             <h4 className="font-semibold text-foreground mb-2">Quick Links</h4>
             <ul className="space-y-2 text-sm">
               <li><Link href="/" className="hover:text-primary transition-colors">Home</Link></li>
-              <li><Link href="/" className="hover:text-primary transition-colors">Products</Link></li>
+              <li><Link href="/products" className="hover:text-primary transition-colors">Products</Link></li>
               <li><Link href="/about" className="hover:text-primary transition-colors">About Us</Link></li>
               <li><Link href="/service" className="hover:text-primary transition-colors">Our Services</Link></li>
               <li><Link href="/contact" className="hover:text-primary transition-colors">Contact Us</Link></li>
@@ -55,12 +63,6 @@ export function Footer() {
                 <Phone className="h-4 w-4 text-primary" />
                 <a href="tel:+12345678900" className="hover:text-primary transition-colors">+1 (234) 567-8900</a>
               </li>
-              {/* You can add address here if needed 
-              <li className="flex items-start gap-2">
-                <MapPin className="h-4 w-4 text-primary mt-1 flex-shrink-0" />
-                <span>123 Fresh St, Food City, FC 54321</span>
-              </li>
-              */}
             </ul>
           </div>
 
@@ -93,8 +95,8 @@ export function Footer() {
                 <Link href="https://instagram.com/foodflow" target="_blank" rel="noopener noreferrer" aria-label="FoodFlow on Instagram" className="text-muted-foreground hover:text-primary transition-colors">
                   <Instagram className="h-6 w-6" />
                 </Link>
-                <Link href="https://x.com/foodflow" target="_blank" rel="noopener noreferrer" aria-label="FoodFlow on X" className="text-muted-foreground hover:text-primary transition-colors">
-                  <XIcon className="h-6 w-6" />
+                <Link href="https://x.com/foodflow" target="_blank" rel="noopener noreferrer" aria-label="FoodFlow on X (Twitter)" className="text-muted-foreground hover:text-primary transition-colors">
+                  <XTwitterIcon />
                 </Link>
               </div>
             </div>
@@ -109,3 +111,5 @@ export function Footer() {
     </footer>
   );
 }
+
+    
