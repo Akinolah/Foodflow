@@ -29,7 +29,7 @@ export function HeroSection() {
               Experience the convenience of FoodFlow. Quality ingredients, straight to your kitchen, with just a few clicks.
             </p>
             <Button size="lg" asChild className="group">
-              <Link href="/">
+              <Link href="/products">
                 Shop All Products
                 <ArrowRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
               </Link>
