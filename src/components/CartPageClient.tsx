@@ -9,6 +9,7 @@ import { Input } from '@/components/ui/input';
 import { Separator } from '@/components/ui/separator';
 import { Card, CardContent, CardHeader, CardTitle, CardFooter } from '@/components/ui/card';
 import { Trash2, Plus, Minus, MessageSquareText, CreditCard } from 'lucide-react';
+import { ShoppingCartIcon } from '@/components/ShoppingCartIcon'; // Added import
 
 // Replace with your actual WhatsApp number
 const WHATSAPP_PHONE_NUMBER = process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || "1234567890"; // Example, use an env var
